@@ -1,4 +1,12 @@
-// maximum sub array sum - leet code - medium ....
+// Kadane's algorithm
+// maximum sub array sum - leet code - medium 
+
+// make a fn that accepts the array
+// check the array length, if its 0 , return null, if its one, return the first element
+// take 2 variables sum and maxSum
+// make a loop, and add sum. 
+// if sum > maxSum, update maxSum
+// if sum less than 0, make it zero.
 
 var maxSubArray = function (array) {
     if (array.length === 1) return array[0];
