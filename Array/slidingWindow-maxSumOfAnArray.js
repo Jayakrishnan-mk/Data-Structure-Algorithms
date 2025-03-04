@@ -12,10 +12,12 @@ function maxSubArraySum(arr, n) {
     let temp = 0;
     let maxSum = 0;
 
+    // this loop will only calculate the first 3 elements sum...
     for (let i = 0; i < n; i++) {
         maxSum += arr[i];
     }
 
+    // this is the main loop....
     temp = maxSum;
     for (let j = n; j < arr.length; j++) {
         temp = temp - arr[j-n] + arr[j];

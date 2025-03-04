@@ -6,14 +6,14 @@ const str2 = 'nagArAm';
 // then check the conditions
 // first the obj.lengths are same or not
 // then the values and the counts
-// use only 3 loops
+
 console.log(checkAnagram(str1, str2));
 
 function checkAnagram(str1, str2) {
     str1 = str1.toLowerCase();
     str2 = str2.toLowerCase();
 
-    // first check of the length of each objects same.
+    // first check the length of each objects same.
     if (str1.length !== str2.length) return false;
 
     const frequencyCounter1 = {};
