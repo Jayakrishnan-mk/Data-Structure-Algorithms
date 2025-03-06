@@ -1,10 +1,10 @@
 // two sum - leet code - easy 
 
 // make a fn, that accepts array and target value
-// create a loop
-// inside one another loop
-// check the values, which of values sum is target
-// return the indexes in an array
+// make a hashmap
+// create only one loop
+// find the value with every element and push it to the hashmap
+// if hashmap has the value, return it. otherwise set the value to map
 
 // o(n2) quadratic....
 // var twoSum = function (array, target) {
