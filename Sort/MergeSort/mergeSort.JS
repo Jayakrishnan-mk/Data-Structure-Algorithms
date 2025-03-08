@@ -1,8 +1,7 @@
 // merge sort
 
-// create a fn for mergeSort.
-// create a fn for merge
-// use the merge fn for recursion
+// create a fn mergeSort for sorting.
+// create a fn for merge for recursion
 // find the mid value of the array and use left and right splitting mechanism
 // pass the arrays to mergeSort fn
 // in mergeSort, use the while loop for checking with the two arrays values
