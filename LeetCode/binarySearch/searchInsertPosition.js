@@ -9,7 +9,6 @@
 // other wise left will be mid+1
 // at the end , return left 
 
-
 var searchInsert = function (array, target) {
     let left = 0;
     let right = array.length - 1;
