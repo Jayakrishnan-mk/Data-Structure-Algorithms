@@ -7,11 +7,11 @@
 // left will be 0 in starting and right will be array.length - 1
 // from inside this fn, call an another fn called pivotFn for fetching the pivotIndex
 // while calling that fn, send params as array, left and right as well
-// in there, left side will be arr, left and pivotIndex -1
-// and , right side will be arr, pivotIndex+1 and right.
+// in there, left side will be-arr, left and pivotIndex -1
+// and , right side will be-arr, pivotIndex+1 and right.
 // divide and conquere this array(partition). 
 // and when the left and right sides are containing only one element, return the element.
-// in the pivotFn, take the starting position of value as pivotIPoint and loop the array
+// in the pivotFn, take the starting position of value as pivotPoint and loop the array
 // and every values less than pivot is swap to the swapIndex+1 position. swapIndex will be 0 in starting.
 // create a fn for swap.
 // atlast, outside the loop, swap the pivot value to swapIndex position.
@@ -33,6 +33,7 @@ function pivotFn(array, start = 0, end = array.length - 1) {
             swap(array, i, swapIndex);
         }
     }
+    // dont swap with pivotPoint, swap with 'start'. bcs 'start' is the pivotPoint's index.
     swap(array, start, swapIndex);
     return swapIndex;
 }
