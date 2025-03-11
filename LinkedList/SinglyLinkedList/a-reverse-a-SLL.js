@@ -108,7 +108,7 @@ class SinglyLinkedList {
 
     //    5  15  25  35  null
     reverse() {
-        let node = this.head;  // Start from the current head
+        let node = this.head;  // Start from the current head      // 5
         this.head = this.tail; // Swap head and tail
         this.tail = node;      // Old head becomes the new tail
 
@@ -116,10 +116,10 @@ class SinglyLinkedList {
         let prev = null;       // No previous node initially
 
         for (let i = 0; i < this.length; i++) {
-            next = node.next;  // Store next node
-            node.next = prev;  // Reverse the link
-            prev = node;       // Move prev forward
-            node = next;       // Move node forward
+            next = node.next;  // Store next node        // 15   25 35 null
+            node.next = prev;  // Reverse the link      // null  5  15 25
+            prev = node;       // Move prev forward    //   5   15  25 35
+            node = next;       // Move node forward   //   15   25  35 null
         }
         return this;
     }
