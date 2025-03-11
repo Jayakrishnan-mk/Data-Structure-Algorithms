@@ -121,7 +121,7 @@ class SinglyLinkedList {
             prev = node;       // Move prev forward    //   5   15  25 35
             node = next;       // Move node forward   //   15   25  35 null
         }
-        return this;
+        return prev;
     }
     //   35  25  15  5  null
 }
@@ -132,4 +132,4 @@ list.push(15);
 list.push(25);
 list.push(35);
 console.log(list.reverse());
-console.log('final - stringify', JSON.stringify(list, null, 4));
+// console.log('final - stringify', JSON.stringify(list, null, 4));
