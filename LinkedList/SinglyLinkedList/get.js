@@ -35,7 +35,7 @@ class SinglyLinkedList {
             current = current.next;
             i++;
         }
-        return current.val;
+        return current ? current.val : null;
     }
 }
 
