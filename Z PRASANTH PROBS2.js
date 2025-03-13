@@ -1,11 +1,22 @@
-// 1
-// =
-// PRASANTHS PROBLEM 1 - [[3,5,6], [3,9,1], [2,0,1,2]] ---> [6,9,2] or,vs code problem
+// pass the array and find the largest salary people's object and return in the finalArray
 
-// 2
-// =
-question:
-[
+let presentProb = (array) => {
+    let result = [];
+    let max = {};
+    for (let i = 0; i < array.length; i++) {
+        let inner = array[i];
+        for (let j = 0; j < inner.length; j++) {
+            if (inner[j].salary <= inner[j + 1]?.salary) {
+                max = inner[j + 1];
+            }
+        }
+        result.push([max]);
+        max = {};
+    }
+    return result;
+}
+
+let array = [
     [
         {
             empId: 1,
@@ -58,28 +69,11 @@ question:
         },
     ],
 ];
+console.log(presentProb(array))
 
-answer:
-[
-    [
-        {
-            empId: 2,
-            empName: 'pandya',
-            salary: 2000000
-        },
-    ],
-    [
-        {
-            empId: 6,
-            empName: 'mandan',
-            salary: 1300000
-        },
-    ],
-    [
-        {
-            empId: 9,
-            empName: 'lambu',
-            salary: 1900000
-        },
-    ]
-]
+// answer will be this:>>>>>>>>>>>>>>>>>>>>>>
+// [
+//     { empId: 2, empName: 'pandya', salary: 2000000 },
+//     { empId: 6, empName: 'mandan', salary: 1300000 },
+//     { empId: 9, empName: 'lambu', salary: 1900000 }
+//   ]
