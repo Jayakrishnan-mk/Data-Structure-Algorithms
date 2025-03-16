@@ -1,21 +1,20 @@
 // move zeroes - leet code - easy
 
 // pseudo code:
-// use quick sort method.
-// use the pivot point left for sorting the non 0 values to left side
-// make a variable left with value 0
+// use two-pointer method.
+// use the nonZeroIndex for sorting the non 0 values to left side
+// make a variable nonZeroIndex with value 0
 // make a loop
-// in the loop, check the i is !== 0. then swap with left and i. and left++
-// otherwise nothing to do.
-// return array
+// in the loop, check the i is !== 0. then swap with nonZeroIndex and i. and nonZeroIndex++
+// after loop return array
 
-// quick sort method. using pivot point for shifting 0s.
+// two-pointer approach .use nonZeroIndex for shifting 0s.
 var moveZeroes = function (array) {
-    let left = 0;
+    let nonZeroIndex = 0;
     for (let i = 0; i < array.length; i++) {
         if (array[i] !== 0) {
-            [[array[i], array[left]] = [array[left], array[i]]];
-            left++;
+            [[array[i], array[nonZeroIndex]] = [array[nonZeroIndex], array[i]]];
+            nonZeroIndex++;
         }
     }
     return array;
