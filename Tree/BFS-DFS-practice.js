@@ -194,6 +194,81 @@ class BST {
         return data;
     }
 
+    // MORRIS IN-ORDER TRAVERSAL
+
+    // pseudocode:
+    // make vars data as [], node as this.root.
+    // make a while loop, with the condition - node not null
+    // first check - if node.left is null, directly push to result array and 
+    // assign node = node.right.
+    // else - first thing, find the predecessor. 
+    // the predecessor will be the node.left. 
+    // then use a separate while loop, for finding the rightmost node
+    // if predecessor.right and predecessor !== node, then predecessor = predecessor.right.
+    // now we got the rightmost node, before going to the left side, make the thread link with the root node.
+    // for that, check , if the predecessor.right is null, then make it predecessor.right as node.
+    // and move the current node to node.left
+    // else - we need to remove the thread , if already there is a thread. for that-
+    // predecessor.next = null. then push the node value to data. then make node = node.right
+    // after the loop, return the data. we're done.
+
+    morrisInorderTraversal() {
+        let data = [], node = this.root;
+
+        while (node) {
+            if (!node.left) {
+                data.push(node.value); // Visit the node
+                node = node.right; // Move to the right subtree
+            } else {      // Find the rightmost node of the left subtree
+                let predecessor = node.left;
+
+                while (predecessor.right && predecessor.right !== node) {
+                    predecessor = predecessor.right; // finding right-most node.
+                }
+
+                if (!predecessor.right) {
+                    predecessor.right = node; // creating a thread link.
+                    node = node.left; // Move to the left subtree
+                } else {
+                    predecessor.right = null; // removing the thread.
+                    data.push(node.value);
+                    node = node.right;
+                }
+            }
+        }
+        return data;
+    }
+
+    // MORRIS PRE-ORDER TRAVERSAL
+
+    // only one line change with inorder....
+    morrisPreOrderTraversal() {
+        let data = [], node = this.root;
+
+        while (node) {
+            if (!node.left) {
+                data.push(node.value); // Visit the node
+                node = node.right; // Move to the right subtree
+            } else {      // Find the rightmost node of the left subtree
+                let predecessor = node.left;
+
+                while (predecessor.right && predecessor.right !== node) {
+                    predecessor = predecessor.right; // finding right-most node.
+                }
+
+                if (!predecessor.right) {
+                    predecessor.right = node; // creating a thread link.
+                    data.push(node.value);
+                    node = node.left; // Move to the left subtree
+                } else {
+                    predecessor.right = null; // removing the thread.
+                    node = node.right;
+                }
+            }
+        }
+        return data;
+    }
+
 }
 
 let tr = new BST();
@@ -206,6 +281,7 @@ tr.insert(10);
 // console.log('tr>>>>>>>>>>>', tr);
 // console.log('find>>>>>>>>>>>', tr.find(25));
 // console.log('dfs', tr.dfsInOrderRecursive());
-// console.log('dfs', tr.dfsPreOrderRecursive());
+console.log('dfs', tr.dfsPreOrderRecursive());
 // console.log('dfs', tr.dfsPostOrderRecursive());
-console.log('dfs', tr.dfsPostOrderIterative());
+// console.log('dfs', tr.dfsPostOrderIterative());
+console.log('morris', tr.morrisPreOrderTraversal());
