@@ -1,0 +1,1 @@
+fib[fib.length - 1] + fib[fib.length - 2]
