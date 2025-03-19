@@ -99,7 +99,7 @@ class BST {
     // ==================================   DFS  ======================================
     // RECURSIVE SIDE.......
     dfsInOrderRecursive() {
-        // inorder // 2,3,4,5,8,10  (left-root-right) - like ascending.
+        // inorder // 2,3,4,5,8,10  (left-root-right) - sorted list (asc)
         let data = [];
 
         function traverse(node) {
