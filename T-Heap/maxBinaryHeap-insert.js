@@ -21,7 +21,7 @@ class MaxBinaryHeap {
                 heap[parentIndx] = heap[index];
                 heap[index] = temp;
 
-                index = parentIndx;
+                index = parentIndx; 
                 parentIndx = Math.floor((index - 1) / 2);
             }
         }
