@@ -88,7 +88,6 @@ class MinHeap {
             this._swap(idx, smallest);
             idx = smallest;
         }
-
     }
 
 }
