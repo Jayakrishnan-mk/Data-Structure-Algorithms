@@ -2,6 +2,7 @@
 // top k frequent elements - leetcode - medium
 
 // approach - bucket sort algo ...........
+// O(N) or O(N log N) - bucket sort
 
 // pseudocode:
 // make a hashmap to add the value and count
