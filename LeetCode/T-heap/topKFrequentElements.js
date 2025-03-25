@@ -35,6 +35,7 @@ var topKFrequent = function (nums, k) {
     while (minHeap.length > 0) { // in @datastructures-js/priority-queue module, 'minHeap.size' is correct. not length
         result.push(minHeap.dequeue()[0]);
     }
+    
 
     return result;
 };
