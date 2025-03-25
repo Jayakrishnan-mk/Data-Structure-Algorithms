@@ -68,6 +68,6 @@
 //          ACCESSING = O(N)
 
 // BINARY HEAPS = TC -
-//    = INSERTION - O(LOG N)
-//    = REMOVAL - O(LOG N)
+//    = INSERTION - O(LOG N) (enqueue())
+//    = REMOVAL - O(LOG N) (dequeue())
 //    = SEARCHING - O(N) 
