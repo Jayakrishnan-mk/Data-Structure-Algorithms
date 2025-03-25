@@ -5,7 +5,7 @@ class Node {
     }
 }
 
-class DoublyLinkedList {
+class SinglyLinkedList {
     constructor() {
         this.head = null;
         this.tail = null;
