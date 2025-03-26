@@ -13,19 +13,22 @@
 //       1  3  -1  -3 [5  3  6] 7       6
 //       1  3  -1  -3  5 [3  6  7]      7
 
+// Approach - Using a monotonic queue....
 // pseudocode:
 // take vars result and deque with empty arrays
 // make a loop with input array
 // inside loop, first check - the window is outside or not-
 // if(deque.length > 0 && deque[0] <= i-k) 
 // if it is, then shift(remove from start of deque).
-// second check (while loop)- if the nums[last index of deque] is greater or not with current nums[i]-
+// second check - before pushing the current index to dequeue,-
+// (while loop)- if the nums[last index of deque] is greater or not with current nums[i]-
 // if(deque.length > 0 && nums[deque[deque.length-1]] <= nums[i])
 // if it is, then pop deque. till the end of the smaller values, continue popping
 // (removing the smaller values from the current window)
 // take the new greater element of the window- deque.push(i) 
 // atlast, check the window is started, - with the check if(i>= k-1), 
 // if it is, start to push the nums[deque[0]] to the result array
+// after loop, return result
 
 let maxSlidingWindow = (nums, k) => {
     let result = [];
