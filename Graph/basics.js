@@ -50,24 +50,43 @@ class Graph {
     }
 
     dfsTraversalIterative(start) {
-        let stack = [];
+        let stack = [start];
         let result = [];
         let visited = {};
-        let adjacencyList = this.adjacencyList;
+        let currentVertex;
 
-        stack.push(start);
-        while (stack.length > 0) {
-            let vertex = stack.pop();
+        visited[start] = true;
+        while (stack.length) {
+            currentVertex = stack.pop();
+            result.push(currentVertex);
 
-            if (!visited[vertex]) {
-                visited[vertex] = true;
-                result.push(vertex);
-                adjacencyList[vertex].forEach(v => {
-                    if (!visited[v]) {
-                        stack.push(v);
-                    }
-                })
-            }
+            this.adjacencyList[currentVertex].forEach(neighbor => {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    stack.push(neighbor);
+                }
+            })
+        }
+        return result;
+    }
+
+    bfsTraversal(start) {
+        let queue = [start];
+        let result = [];
+        let visited = {};
+        let currentVertex;
+        visited[start] = true;
+
+        while (queue.length) {
+            currentVertex = queue.shift();
+            result.push(currentVertex);
+
+            this.adjacencyList[currentVertex].forEach(neighbor => {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.push(neighbor);
+                }
+            })
         }
         return result;
     }
@@ -92,6 +111,7 @@ g.addEdge("E", "F");
 
 // console.log('adjacenwoowooooooo', g.adjacencyList)
 // console.log('dfssss', g.dfsTraversalRecursion('A'))
-console.log('dfssss', g.dfsTraversalIterative('A'))
+// console.log('dfssss', g.dfsTraversalIterative('A'))
+console.log('bfssss', g.bfsTraversal('A'))
 
 // console.log('addddd', g.adjacencyList)
