@@ -77,11 +77,11 @@ class PriorityQueue {
         let end = this.values.pop();
         if (this.values.length > 0) { // edge case
             this.values[0] = end;
-            this.sinkDown();
+            this.bubbleDown();
         }
         return min;
     }
-    sinkDown() { // [ 6, 2, 3, 4, 5 ]
+    bubbleDown() { // [ 6, 2, 3, 4, 5 ]
         let idx = 0;
         let length = this.values.length;
         while (true) {
@@ -135,8 +135,11 @@ class WeightedGraph {
             }
             previous[vertex] = null; // setting up the previous(from where the connection comes) as null.
         }
+        console.log('qqqqqqqqqqqqqqqqq', nodes)
+        console.log('distanccccccccccc', distance)
+        console.log('previoussssssssss', previous)
 
-        while (nodes.values.length) {
+        while (nodes.values.length) { // this is the queue we've created.
             smallest = nodes.dequeue().val; // A (Initially)
 
             if (smallest === finish) {
@@ -150,11 +153,11 @@ class WeightedGraph {
             }
 
             if (smallest || distance[smallest] !== Infinity) {
-                for (let neighbor in this.adjacencyList[smallest]) { // neighbors of A  (in first iteration)
+                for (let neighbor in this.adjacencyList[smallest]) { // neighbors of A  (in first iteration - B)
                     let nextNode = this.adjacencyList[smallest][neighbor]; // B
                     // calculate new distance of neighbor node
-                    let candidate = distance[smallest] + nextNode.weight;  // 0 + 3   A to B - distance
-                    let nextNeighbor = nextNode.node; // C
+                    let candidate = distance[smallest] + nextNode.weight;  // 0 + 4   A to B - distance
+                    let nextNeighbor = nextNode.node; // A
 
                     if (candidate < distance[nextNeighbor]) { // Checking B or C is less distance from A.
                         distance[nextNeighbor] = candidate; // updating the new smallest distance of neighbor
@@ -186,6 +189,8 @@ graph.addEdge("C", "F", 4);
 graph.addEdge("D", "E", 3);
 graph.addEdge("D", "F", 1);
 graph.addEdge("E", "F", 1);
+
+// console.log('adj', graph.adjacencyList)
 
 console.log(graph.Dijkstra("A", "E"));
 // output -  ["A", "C", "D", "F", "E"]
