@@ -21,22 +21,44 @@
 // console.log(subsets([1, 2, 3]))
 
 // backtracking algorithm.......................
-var subsets = function(nums) {
+// var subsets = function (nums) {
+//     let result = [];
+
+//     function backtrack(start, subset) {
+//         console.log("Before adding to result:", subset);
+//         result.push([...subset]);  // Store the current subset
+//         console.log("Added to result:", result);
+
+//         for (let i = start; i < nums.length; i++) {
+//             subset.push(nums[i]);  // Include nums[i] in the subset
+//             console.log("After push:", subset);
+
+//             backtrack(i + 1, subset);  // Explore further with this element
+
+//             subset.pop();  // Backtrack (remove last element)
+//             console.log("After pop:", subset);
+//         }
+//     }
+
+//     backtrack(0, []);
+//     return result;
+// };
+
+// console.log(subsets([1, 2]));
+
+// Back tracking with recursion...........
+var subsets = function (nums) {
+
     let result = [];
-    
-    function backtrack(start, subset) {
-        console.log("Before adding to result:", subset);
-        result.push([...subset]);  // Store the current subset
-        console.log("Added to result:", result);
-        
+
+    function backtrack(start, path) {
+        console.log(`Start = ${start}, Path = ${path}`);
+
+        result.push([...path]);  // Store current subset
         for (let i = start; i < nums.length; i++) {
-            subset.push(nums[i]);  // Include nums[i] in the subset
-            console.log("After push:", subset);
-            
-            backtrack(i + 1, subset);  // Explore further with this element
-            
-            subset.pop();  // Backtrack (remove last element)
-            console.log("After pop:", subset);
+            path.push(nums[i]);  // Choose an element
+            backtrack(i + 1, path);  // Recurse with next elements
+            path.pop();  // Backtrack (undo last choice)
         }
     }
 
@@ -44,4 +66,9 @@ var subsets = function(nums) {
     return result;
 };
 
-console.log(subsets([1, 2]));
+console.log(subsets([1, 2, 3]));
+
+// result = [ [], [1], [1,2] , [1,2,3] , [1,3]   ]
+// path = [ [ 1 ]  ]
+// i = 2
+// start = 3
