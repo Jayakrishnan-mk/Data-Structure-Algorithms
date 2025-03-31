@@ -46,14 +46,28 @@
 
 // console.log(subsets([1, 2]));
 
+
 // Back tracking with recursion...........
+
+
+// subset - pseudocode:
+// make a var result with an empty array .
+// make a recursion fn
+// invoke fn with 0 and [].
+// take the params start and path respectively.
+// push the path array to result with destructure in  an array
+// then start a for loop
+// condition will be - i = start, and i<n. means nums.length
+// add the nums[i] to the path.
+// then make the recursion fn call. with passing i+1 and path.
+// after that, path.pop().
+// after the loop, return result;
+
 var subsets = function (nums) {
 
     let result = [];
 
     function backtrack(start, path) {
-        console.log(`Start = ${start}, Path = ${path}`);
-
         result.push([...path]);  // Store current subset
         for (let i = start; i < nums.length; i++) {
             path.push(nums[i]);  // Choose an element
