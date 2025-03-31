@@ -25,7 +25,7 @@ function knapsackOptimized(W, weight, profit, n) {
 
 
 console.log(knapsack(W = 4, profit = [1, 2, 3], weight = [4, 5, 1], profit.length))
-// output will be 3 
+// output will be 3
 
 
 // function knapsack(W, weight, profit, n) {
@@ -40,7 +40,7 @@ console.log(knapsack(W = 4, profit = [1, 2, 3], weight = [4, 5, 1], profit.lengt
 //         for (let w = 0; w <= W; w++) {
 //             if (weight[i - 1] <= w) {   // [4, 5, 1]
 //                 dp[i][w] = Math.max(dp[i - 1][w], profit[i - 1] + dp[i - 1][w - weight[i - 1]]);
-//             } else {             //                                                                        
+//             } else {             //
 //                 dp[i][w] = dp[i - 1][w];
 //             }
 //         }
