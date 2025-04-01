@@ -1,0 +1,1 @@
+.map(() => Array(n + 1).fill(0));
