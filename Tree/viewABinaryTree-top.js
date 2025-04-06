@@ -12,7 +12,7 @@
 // pseudocode:
 // edge case - if root is null - return [];
 // here we're using one hd(horizontal distance) variable with the node inside queue
-// take an array as queue [] and push the root with 0 as an array inside this queue
+// take a queue as [] and push the root with 0 as an array inside this queue
 // then take a hashmap
 // make a while loop with condition queue.length
 // take the vars node and hd and assign queue.shift() to this.
@@ -32,10 +32,10 @@ let topView = (root) => {
     if (!root) return [];
 
     let map = new Map();
-    let queue = [[root, 0]];
+    let queue = [[root, 0]]; // 0 is the horizontal distance
 
     while (queue.length) {
-        let [node, hd] = queue.shift(); // here hd means, the horizontal distance
+        let [node, hd] = queue.shift();
 
         if (!map.has(hd)) map.set(hd, node.val); // taking only the first item from the horizontal distance
 
@@ -47,3 +47,4 @@ let topView = (root) => {
 }
 
 console.log(topView([1, 2, 3, 4, 5, null, 6]))
+// Output: [4, 2, 1, 3, 6]

@@ -43,3 +43,19 @@ let leftView = (root) => {
 }
 
 console.log(leftView([1, 2, 3, 4, 5, null, 6]))
+
+// dfs - left side view
+
+// let leftSideTree = (root) => {
+//     if (!root) return [];
+//     let result = [];
+
+//     (function dfs(node, depth) {
+//         if (!node) return;
+//         if (depth === result.length) result.push(node.val);
+
+//         dfs(node.left, depth + 1);
+//         dfs(node.right, depth + 1);
+//     })(root, 0);
+//     return result;
+// }
