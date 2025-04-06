@@ -44,3 +44,22 @@ let rightView = (root) => {
 }
 
 console.log(rightView([1, 2, 3, 4, 5, null, 6]))
+
+
+// dfs approach - preorder(but starting from right side)...
+
+// var rightSideView = function (root) {
+//     if (!root) return [];
+//     let result = [];
+
+//     (function dfs(node, depth) {
+//         if (!node) return;
+//         if (depth === result.length) {
+//             result.push(node.val);
+//         }
+
+//         dfs(node.right, depth + 1);
+//         dfs(node.left, depth + 1);
+//     })(root, 0);
+//     return result;
+// };
