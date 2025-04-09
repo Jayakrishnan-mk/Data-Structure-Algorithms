@@ -1,4 +1,6 @@
 
+// twoSum - leetcode - easy
+
 // first, make a var called value and a hashmap
 // then loop the nums
 // assign the target-nums[i] to value
