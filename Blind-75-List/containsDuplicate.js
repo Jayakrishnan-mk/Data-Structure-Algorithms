@@ -3,16 +3,16 @@
 
 // first make a map
 // loop the nums array and add the num to map
-// in an another loop, check the i is inside map with has property
-// if its not, after end of the loop, return false
-// if it is, return true
+// check, the map has already the nums[i]
+// if its not, add it, if it is, return true
+// after the loop, return false;
 
 let containsDuplicate = (nums) => {
     let map = new Map();
 
     for (let i = 0; i < nums.length; i++) {
-        if (!map.has(nums[i])) map.set(nums[i], i);
-        if (map.has(nums[i]) && map.get(nums[i]) !== i) return true;
+        if (!map.has(nums[i])) map.set(nums[i]);
+        else return true;
     }
     return false;
 }
