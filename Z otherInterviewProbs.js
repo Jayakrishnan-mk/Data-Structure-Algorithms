@@ -1,4 +1,4 @@
-// Z PRASANTH PROBS
+// Z PROBS
 
 // = array : take the greatest element in every array and return in main array.
 // [[3,5,6], [3,9,1], [2,0,1,2]] 
