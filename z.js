@@ -1,28 +1,20 @@
 
 
 
-// brute force approach
-// create a var called m as 1 initially
-// create a loop to iterate nums with i
-// inside, another loop for j
-// if i === j, then continue. otherwise, multiple with m
-// create a new array for result, and push the m,
-// when the inner loop completes. then make it m = 1 again.
-// at the end, return result.
-
-var productExceptSelf = function (nums) {
-    let result = [];
+let moveZeroes = (nums) => {
+    if (nums.length === 1) return nums;
+    let pointer = 0;
 
     for (let i = 0; i < nums.length; i++) {
-        let m = 1;
-        for (let j = 0; j < nums.length; j++) {
-            if (i === j) continue;
-            m = nums[j] * m;
+        if (nums[i] !== 0) {
+            let temp = nums[i];
+            nums[i] = nums[pointer];
+            nums[pointer] = temp;
+
+            pointer++;
         }
-        result.push(m);
     }
-    return result;
+    return nums
 };
 
-
-console.log(productExceptSelf(nums = [1, 2, 3, 4]))
+console.log(moveZeroes(nums = [1, 2, 0, 3, 0, 4]))
