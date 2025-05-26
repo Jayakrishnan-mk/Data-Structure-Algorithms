@@ -1,26 +1,41 @@
 
 
-// create a map.
-// loop the s
-// add the item and freq to the map
-// at the end, loop the map
-// check, the first item which has freq only 1, save that to a var
-// if didnt get with freq 1 in map, return -1.
-// then find the index of that by looping the s again
-// and return the index. 
+//  for solving this, in an O(N) tc and sc, we can do :
+// first, edge case, check , if head is null,return head.
+// take the head to curr var
+// loop the curr
+// create new node of curr.val and assign to a copyNode var
+// then add to map. original node ---> copied node
+// again, assign the head to current var
+// loop current again
+// take the copyNode with map.get(current).
+// then , make the next of copyNode with map.get(current.next).
+// same like random, 
+// atlast, return the map.get(head). done
 
-var firstUniqChar = function (s) {
-    let ht = {};
-    for (let i of s) {
-        ht[i] = (ht[i] || 0) + 1;
+
+var copyRandomList = function (head) {
+    if (!head) return null;
+
+    let current = head;
+    let map = new Map();
+
+    while (current) {
+        let copyNode = new _Node(current.val);
+        map.set(current, copyNode);
+        current = current.next;
     }
 
-    for (let i = 0; i < s.length; i++) {
-        if (ht[s[i]] === 1) return i;
+    current = head;
+
+    while (current) {
+        let copyNode = map.get(current);
+        copyNode.next = map.get(current.next) || null;
+        copyNode.random = map.get(current.random) || null;
+
+        current = current.next;
     }
-    return -1;
+
+    return map.get(head);
 };
 
-
-
-console.log(firstUniqChar("leetcode"))
