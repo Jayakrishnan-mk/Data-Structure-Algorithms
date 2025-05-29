@@ -1,41 +1,21 @@
 
 
-//  for solving this, in an O(N) tc and sc, we can do :
-// first, edge case, check , if head is null,return head.
-// take the head to curr var
-// loop the curr
-// create new node of curr.val and assign to a copyNode var
-// then add to map. original node ---> copied node
-// again, assign the head to current var
-// loop current again
-// take the copyNode with map.get(current).
-// then , make the next of copyNode with map.get(current.next).
-// same like random, 
-// atlast, return the map.get(head). done
 
+var isAnagram = function (s, t) {
+    if (s.length !== t.length) return false;
 
-var copyRandomList = function (head) {
-    if (!head) return null;
+    let fm1 = new Map(), fm2 = new Map();
 
-    let current = head;
-    let map = new Map();
-
-    while (current) {
-        let copyNode = new _Node(current.val);
-        map.set(current, copyNode);
-        current = current.next;
+    for (let i of s) {
+        fm1.set(i, (fm1.get(i) || 0) + 1);
     }
 
-    current = head;
-
-    while (current) {
-        let copyNode = map.get(current);
-        copyNode.next = map.get(current.next) || null;
-        copyNode.random = map.get(current.random) || null;
-
-        current = current.next;
+    for (let i of t) {
+        fm2.set(i, (fm2.get(i) || 0) + 1);
     }
+    console.log('fm', fm1)
+    let ha = [...fm1.entries()]
+    console.log('ha', ha)
+}
 
-    return map.get(head);
-};
-
+console.log(isAnagram(s = "anagram", t = "nagaram"))
