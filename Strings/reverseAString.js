@@ -1,20 +1,41 @@
+// input: "this is a string"
+// output: "gnir ts a sisiht"
+// Reverse the string but the space will be same.
 
 
+// strings are immutable. so we cant directly swap the letters/digits
+// so we need to make it to one array using split. then only start.
 
-// Input:  [0, 1, 0, 3, 12]
-// Output: [1, 3, 12, 0, 0]
+// first make a var char as splitting the string
+// create vars i and j as 0 and len-1
+// now, make a while loop that i < j
+// if i is a space, i++
+// if j is a space, j--
+// otherwise, swap the i and j items. and i++,j--
+// in the end, return char array as string by joining.
 
-let moveZeroes = (array) => {
-    let pointer = 0;
+let reverseString = (str) => {
+    let char = str.split('');
+    let i = 0;
+    let j = char.length - 1;
 
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] !== 0) {
-            array[pointer] = array[i];
-            array[i] = 0;
-            pointer++;
+    while (i < j) {
+        if (char[i] === ' ') {
+            i++;
+        }
+        else if (char[j] === ' ') {
+            j--;
+        } else {
+            [char[i], char[j]] = [char[j], char[i]];
+            i++;
+            j--;
         }
     }
-    return array;
+    return char.join('');
 }
 
-console.log(moveZeroes([0, 1, 0, 3, 12]))
+console.log(reverseString("this is a string"));
+// ✅ Output: "gnir ts a sisiht"
+
+console.log(reverseString("this is a string hell"))
+// output: "lleh gn i rtsasi siht"

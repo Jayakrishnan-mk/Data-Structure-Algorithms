@@ -1,19 +1,37 @@
 
-// var isAnagram = function (s, t) {
-//     if (s.length !== t.length) return false;
 
-//     let fm1 = new Map(), fm2 = new Map();
 
-//     for (let i of s) {
-//         fm1.set(i, (fm1.get(i) || 0) + 1);
-//     }
 
-//     for (let i of t) {
-//         fm2.set(i, (fm2.get(i) || 0) + 1);
-//     }
-//     console.log('fm', fm1)
-//     let ha = [...fm1.entries()]
-//     console.log('ha', ha)
-// }
+//  Strings – Valid Anagram
 
-// console.log(isAnagram(s = "anagram", t = "nagaram"))
+
+
+let validAnagrams = (str1, str2) => {
+    let freqMap = new Map;
+
+    for (let i = 0; i < str1.length; i++) {
+        if (freqMap.has(str1[i])) {
+            freqMap.set(str1[i], freqMap.get(str1[i]) + 1);
+        } else {
+            freqMap.set(str1[i], 1);
+        }
+    }
+
+    for (let i of str2) {
+        if (!freqMap.has(i)) return false;
+        freqMap.set(i, freqMap.get(i) - 1);
+        if (freqMap.get(i) === 0) {
+            freqMap.delete(i);
+        }
+    }
+    return freqMap.size === 0;
+};
+
+console.log(validAnagrams(s = "listen", t = "silent"))
+console.log(validAnagrams(s = "rat", t = "car"))
+
+// Input: s = "listen", t = "silent"
+// Output: true
+
+// Input: s = "rat", t = "car"
+// Output: false
