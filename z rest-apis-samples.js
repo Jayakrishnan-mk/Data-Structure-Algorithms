@@ -175,5 +175,89 @@ function findWordCount(req, res) {
 //     res.json({ wordCount: count });
 // }
 
+// -----------------------------------------------------------------------------------------------------------
+
+// Route Logic (Method Type Awareness)
+// 🧠 Question:
+// You're building a route to create a new book in a library system.
+
+// It should accept title and author in the request.
+// If any field is missing, respond with 400.
+// On success, respond with 201 and return the book data.
+
+// ❓ Task:
+// Which HTTP method is appropriate here? And outline the basic logic of 
+// your function (no need for DB, just req.body, validation, and response).
+
+// post
+// logic:
+
+function createBook(req, res) {
+    const { title, author } = req.body;
+
+    if (!title || !author) {
+        return res.status(400).json({ error: "Missing fields." })
+    }
+    res.status(201).json({ message: 'Book created successfully.' })
+}
+
+// -----------------------------------------------------------------------------------------------------------
 
 
+// ❓ Question:
+// Create an endpoint GET /status that returns a simple JSON message like:
+
+// { "status": "Server is running" }
+
+function getStatus(req, res) {
+    res.json({ status: "Server is running" })
+}
+
+// -----------------------------------------------------------------------------------------------------------
+
+// Question:
+// Implement a POST /calculate route that receives two numbers (num1 and num2) in the request body, 
+// and returns their sum in this format:
+
+// {
+//   "sum": 42
+// }
+
+// If either number is missing or not a number, return 400 with this error:
+
+// {
+//   "error": "Invalid input"
+// }
+
+// function calculateSum(req, res) {
+//     let { num1, num2 } = req.body;
+
+//     if (typeof num1 !== 'number' || typeof num2 !== 'number') {
+//         return res.status(400).json({ error: 'Invalid input' });
+//     }
+
+//     res.status(200).json({ sum: num1 + num2 });
+// }
+
+// -----------------------------------------------------------------------------------------------------------
+
+// Palindrome Checker
+// Endpoint: GET /api/check-palindrome
+// Query Param: word (string)
+// Response:
+
+// If the word is a palindrome, return:
+// { "isPalindrome": true }
+
+// Else, return:
+// { "isPalindrome": false }
+
+// 📌 Note: A palindrome reads the same forward and backward (e.g., madam, racecar).
+
+function isPalindrome(req, res) {
+    let word = (req.query.word || '').toLowerCase();
+
+    let reversed = word.split('').reverse().join('');
+
+    return res.status(200).json({ isPalindrome: word === reversed });
+}
