@@ -3,18 +3,18 @@
 // NoBroker interview questions:
 // -----------------------------
 
-// What will be the output of this?:
-Promise.resolve(1)
-.then(x => x + 1)
- .then(x => { throw new Error('Oops') })
- .catch(() => 3)
- .then(x => x + 1)
- .then(console.log);
- 
- 
- 
- // What will be the output of this?:
- console.log("Start");
+// 1, What will be the output of this?:
+// Promise.resolve(1)
+//   .then(x => x + 1)
+//   .then(x => { throw new Error('Oops') })
+//   .catch(() => 3)
+//   .then(x => x + 1)
+//   .then(console.log);
+
+//  -----------------------------------------------------------
+
+// 2, What will be the output of this?:
+console.log("Start");
 
 Promise.resolve().then(() => {
   console.log("promise 1");
