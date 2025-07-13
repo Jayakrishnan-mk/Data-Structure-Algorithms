@@ -4,6 +4,7 @@
 // -----------------------------
 
 // 1, What will be the output of this?:
+
 // Promise.resolve(1)
 //   .then(x => x + 1)
 //   .then(x => { throw new Error('Oops') })
@@ -14,6 +15,7 @@
 //  -----------------------------------------------------------
 
 // 2, What will be the output of this?:
+
 console.log("Start");
 
 Promise.resolve().then(() => {
