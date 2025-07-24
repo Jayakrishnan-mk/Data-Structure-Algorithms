@@ -3,6 +3,7 @@
 
 // greedy problem.....
 
+// question link: https://www.hackerrank.com/challenges/chocolate-feast/problem
 
 let money = 15;
 let cost = 1;
