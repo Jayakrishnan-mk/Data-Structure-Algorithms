@@ -58,26 +58,23 @@
 
 // ----------------------------------------------------------------------------
 
-// 🧠 Q: List products that have never been ordered but are present in some customers’ carts.
+// 🧠 Q: List all customers who have added more than 3 different products to their cart.
 
 
-
-// 🛍️ products
-// | id | name | price | category_id |
-
-// 👥 customers
-// | id | name | region |
-
-// 🛒 cart_items
-// | id | customer_id | product_id | quantity |
-
-// 📦 orders
-// | id | customer_id | product_id | quantity |
-
+// SELECT 
+// 	c.name,
+// 	COUNT(DISTINCT ci.product_id) AS diffCount
+// FROM
+// 	customers c
+// JOIN
+// 	cart_items ci ON c.id=ci.customer_id
+// GROUP BY
+// 	c.id, c.name
+// HAVING
+// 	diffCount > 3;
 
 
-
-
+// ----------------------------------------------------------------------------
 
 
 
