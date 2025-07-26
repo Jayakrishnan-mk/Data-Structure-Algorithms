@@ -4,7 +4,7 @@
 
 // greedy problem.....
 
-
+// kognito kube - interview ? - hyderabad startup
 
 // rahul has 15₹. he need to buy maximum chocolates to eat. one chocolate has 1₹.
 // the shopper gave him an offer. 
