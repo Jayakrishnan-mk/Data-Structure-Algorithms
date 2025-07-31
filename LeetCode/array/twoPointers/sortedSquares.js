@@ -27,3 +27,19 @@ var sortedSquares = function (nums) {
 
 console.log(sortedSquares([-7, -3, 2, 3, 11]))
 // Output: [4,9,9,49,121]
+
+
+// =================================================
+
+// simple approach - easy way - O(N log N)
+
+// square every element. and sort the squared array in asc. return.
+
+// var sortedSquares = function (nums) {
+//    for(let i = 0; i<nums.length; i++) {
+//        nums[i] = nums[i] * nums[i];
+//    }
+    
+//     return nums.sort((a,b) => a-b);
+// }
+
