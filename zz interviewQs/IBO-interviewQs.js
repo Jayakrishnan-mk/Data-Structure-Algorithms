@@ -44,10 +44,25 @@ const listOfProducts = [{
 ];
 
 function getUniqueProductCount(data) {
+  let map = new Map();
 
+  listOfProducts.map((prod) => {
+    if (!map.has(prod.productName)) {
+      map.set(prod.productName, 1);
+    } else {
+      map.set(prod.productName, map.get(prod.productName) + 1);
+    }
+  });
+
+  // let res = {};
+  // map.forEach((val, key) => {
+  //   res[key] = val;
+  // })
+
+  return Object.fromEntries(map);
 }
 
-getUniqueProductCount(listOfProducts)
+console.log(getUniqueProductCount(listOfProducts));
 
 
 // 2. you need to write a function say, getUniquePrducts which should return an array of objects by grouping the products based on the productName and summing up the quantity for the same products present in the given list of Products considering Product Name as Key.
@@ -71,38 +86,8 @@ getUniqueProductCount(listOfProducts)
 //   }
 // ]
 
-// */
+function getUniquePrducts(listOfProducts) {
 
-// const listOfProducts = [{
-//     productName: "TV",
-//     quantity: 10,
-//     description: "television"
-//   },
-//   {
-//     productName: "AC",
-//     quantity: 5,
-//     description: "air conditioner"
-//   },
-//   {
-//     productName: "TV",
-//     quantity: 10,
-//     description: "television"
-//   },
-//   {
-//     productName: "AC",
-//     quantity: 5,
-//     description: "air conditioner"
-//   },
-//   {
-//     productName: "FAN",
-//     quantity: 10,
-//     description: "Ceiling Fan"
-//   }
-// ];
+}
 
-
-
-
-
-
-
+console.log(getUniquePrducts(listOfProducts));
