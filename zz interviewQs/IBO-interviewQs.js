@@ -87,7 +87,14 @@ console.log(getUniqueProductCount(listOfProducts));
 // ]
 
 function getUniquePrducts(listOfProducts) {
+  // create a hashmap first to add the productName and the quantity of that
+  // then, if item is there, then add the quantity only with current
+  // after that, create a res array
+  // then loop the listofproducts, and check the item is in hashmap
+  // if it is, take the quantity from hashmap, the remaining fields are same as listOfProducts
+  // push this to res. done
 
+  // atlast, try these both points in reduce method.
 }
 
 console.log(getUniquePrducts(listOfProducts));
