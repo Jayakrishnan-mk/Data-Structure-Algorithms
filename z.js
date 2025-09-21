@@ -5,23 +5,18 @@
 
 
 
+function findMissingNumber(nums) {
+    let n = nums.length;
+    let total = (n * (n + 1)) / 2;
 
-function findOddNumber(arr) {
-
-    let oddArray = [];
-
-    if (arr.length === 0) return oddArray;
-    if (arr[0] % 2 !== 0) oddArray.push(arr[0]);
-
-    oddArray = oddArray.concat(findOddNumber(arr.slice(1)));
-    return oddArray;
+    let sum = 0;
+    for (let i of nums) {
+        sum += i;
+    }
+    return total - sum;
 }
 
-console.log(findOddNumber([1, 2, 3, 4, 5, 6, 7]));
-
-
-
-
+console.log(findMissingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]))
 
 
 
