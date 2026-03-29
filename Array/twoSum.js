@@ -12,17 +12,18 @@ const target = 9;
 // if it is, return the i and map's item.
 // done
 
-function twoSum(nums) {
+function twoSum(nums, target) {
     let hm = new Map();
 
     for (let i of nums) {
-
         let key = target - i;
-        if (!hm.has(key)) {
-            hm.set(i, i);
-        } else {
-            return [hm.get(key), i];
+        if (hm.has(key)) {
+            return [key, i];
         }
+        hm.set(i, i);
     }
 }
-console.log(twoSum(nums));
+console.log(twoSum(nums, target));
+
+// Time complexity is O(n). we traverse the array once. 
+// HashMap lookup and insert are both O(1) average case, so the overall complexity is O(n)
