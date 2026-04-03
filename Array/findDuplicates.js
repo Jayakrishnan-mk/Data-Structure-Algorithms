@@ -33,6 +33,7 @@ function findDuplicates(array) {
             result.push(key);
         }
     }
+    console.log('hashmap', hm);
     return result;
 }
 
